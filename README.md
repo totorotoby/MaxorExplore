@@ -1,0 +1,5 @@
+# MaxorExplore
+
+## Dependancies
+
+QCustomPlot
