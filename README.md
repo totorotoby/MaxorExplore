@@ -1,5 +1,4 @@
 # MaxorExplore
 
 ## Dependancies
-
-QCustomPlot
+GNUplot
