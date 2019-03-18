@@ -7,6 +7,9 @@ using namespace std;
 
 template<typename K, typename V>
 void print_map(unordered_map<K,V> const &m);
+vector<int> getKeys(unordered_map<int,int> map);
+vector<int> getValues(unordered_map<int,int> map);
+int maxVorS(unordered_map<int,int> map, char flag);
 
 class Agent
 {
@@ -20,8 +23,6 @@ public:
 	vector<int> choiceVector;
 	//the specfic function that makes the choice vector
 	vec_func makeVector;
-	//temporary for the function I am using now we need to know what index to switch on
-	int index;
 	//the states that the agent has already been to
 	unordered_map<int, int> seen;
 	//the states that the agent hasn't been to yet
@@ -31,10 +32,10 @@ public:
 	
 	Agent(vector<int> inputStates, vec_func makeVector, int T);
 	void reset(vector<int> inputStates);
-	void remakeVector(void);
+	void remakeVector(int index);
 	int explore();
 	int maximize();
-	vector<int> getKeys(unordered_map<int,int> map);
-	vector<int> getValues(unordered_map<int,int> map);
+	void printInfo(void);
+	void onlineChoice(int min, int max);
 
 };

@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include "init_states.h"
+
+int randNumber(int min, int max){
+	// returns a random number in  range min to max
+
+	int num = rand() % (max - min + 1) + min;
+	return num;
+}
+
+void makeValues(int *values, int n, int min, int max){
+//fills the values array with random numbers for each state from min to max
+
+	//seeding random number generator with the time
+	srand(time(NULL));
+	// looping through and adding random numbers
+	for (int i = 0 ; i < n ; i++){
+		values[i] = randNumber(min, max);
+	}
+}
+
+States getStates(int n, int minValue, int maxValue){
+
+	//creating list of values, the index of a value can be the number state
+	int Values[n];
+	makeValues(Values, n, minValue, maxValue);	
+
+	States valueTable = {n, Values};
+
+	return valueTable;
+}
+
+void printSandV(States states){
+
+	
+}

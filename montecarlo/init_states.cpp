@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <sys/time.h>
+#include <iostream>
+#include <unistd.h>
 #include "init_states.h"
 
 
@@ -17,7 +20,9 @@ void makeValues(int *values, int n, int min, int max){
 //fills the values array with random numbers for each state from min to max
 
 	//seeding random number generator with the time
-	srand(time(NULL));
+	//struct timeval tp;
+	//gettimeofday(&tp, NULL);
+	//long int ms = tp.tv_sec * 1000 + tp.tv_usec / 1000;
 	// looping through and adding random numbers
 	for (int i = 0 ; i < n ; i++){
 		values[i] = randNumber(min, max);

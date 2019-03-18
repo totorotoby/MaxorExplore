@@ -1,0 +1,32 @@
+A Node Class:
+  *Need to know if leaf
+  	*assosiated reward
+  *empty assosiated reward (until analysis)
+  *is action
+  *if not action assosiated probabilites with next nodes
+  * children for tree
+
+How to find rewards and costs:
+
+    costs:
+	what is the cost of using up a timestep?
+    	cost = E(value setting dist) - max(seen) ???
+
+    reward:
+	reward if maximize = max(seen)
+    	reward explore = E(value) + value(adding to seen set)
+
+
+
+
+
+None Decision Tree algorithim (get this into C++ code?):
+
+
+At time 0 explore:
+
+for t after 0:
+    if max(seen) > E(value setting dist):
+       maximize
+    else:
+       explore

@@ -1,5 +1,0 @@
-
-main: main.cpp init_states.cpp choice_functions.cpp agent.cpp init_states.h choice_functions.h agent.h
-	g++ -std=c++11 -g -o main init_states.cpp choice_functions.cpp agent.cpp main.cpp
-
-
