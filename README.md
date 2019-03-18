@@ -1,0 +1,4 @@
+# MaxorExplore
+
+## Dependancies
+GNUplot
