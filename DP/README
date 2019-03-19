@@ -30,3 +30,18 @@ for t after 0:
        maximize
     else:
        explore
+
+
+The actual Goal:
+
+f(T, M, a, b) = the index at which it is best to change stratgey
+or i such that max(E(sum_t=i(v_i)))
+
+Where T is total timesteps
+M is total number of states
+a is min value over uniform
+b is max value over uniform
+
+
+
+

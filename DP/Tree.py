@@ -1,4 +1,5 @@
 import copy
+import random
 
 # Class for the nodes of the decision tree
 class Node:
@@ -64,7 +65,20 @@ def buildTree(node, T, t, V):
             
             buildTree(node.maximize, T, t, V)
             #print(node, len(V), t)
-            
+
+# gets the total rewards from top to bottom leafs in list L
+def extoMaxRewards(root, R, L):
+
+    if root.isLeaf == False:
+
+        R+=root.reward
+        extoMaxRewards(root.maximize, R, L)
+        if root.explore != None:
+            extoMaxRewards(root.explore, R, L)
+
+    if root.isLeaf == True:
+        L.append(R)
+
     
 # simple print repersentation of the tree
 def printTree(root, count):
@@ -77,14 +91,21 @@ def printTree(root, count):
 
 
 def main():
-
-    T = 7
+ 
+    T = 5
     t = 0
-    V = [5,2,9,7,3]
+    V = [5, 2, 9, 7, 3, 7, 7, 8, 2, 8, 9, 10, 3]
     seen = [V[0]]
     unseen = V[t+1:len(V)]
     tree = Node(False, seen, unseen, ty='E', reward = V[0])
     buildTree(tree, T, t, V)
-    printTree(tree, 0)    
+    #printTree(tree, 0) 
+
+    rewardList = []
+    extoMaxRewards(tree, 0, rewardList)
+    print(rewardList, len(rewardList))
+    
+
+
 
 main()
